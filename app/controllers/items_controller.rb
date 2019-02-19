@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @items = Item.search(params[:categoria])
-    add_breadcrumb @item.name, @item_path
+    add_breadcrumb @item.nombre, @item_path
   end
 
   def new
