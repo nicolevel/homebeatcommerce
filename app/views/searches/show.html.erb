@@ -7,6 +7,7 @@
 
   <div class="page-inner">
     <h1>Resultados de Busqueda</h1>
+      <%= link_to 'Ver Todo', items_path %>
   <% if @search.search_items.empty? %>
   <p>No encontrado</p>
   <p><%= link_to 'Atras',items_path %></p>
