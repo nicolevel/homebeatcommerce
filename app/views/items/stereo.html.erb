@@ -82,12 +82,12 @@
 
 <%= render "shared/paralax2" %>
 
-<%= render "shared/filters" %>
-<div class="container page-wrapper" style="margin-top: 30px;>
+<div class="container-fluid page-wrapper" style="margin-top: 30px;>
 
   <div class="page-inner">
 
-    <div class="row">
+    <div class="row nosidespace">
+<%= render "shared/filters" %>
 
 
       <% @items.each do |item| %>

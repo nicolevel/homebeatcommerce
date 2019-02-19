@@ -82,12 +82,13 @@
 
 <%= render "shared/paralax2" %>
 
-<%= render "shared/filters" %>
-<div class="container page-wrapper" style="margin-top: 30px;>
+<div class="container-fluid page-wrapper" style="margin-top: 30px;>
 
   <div class="page-inner">
 
-    <div class="row">
+    <div class="row nosidespace">
+    <%= render "shared/filters" %>
+
       <% @items.each do |item| %>
       <% if item.disponible && item.features == "Parlantes" %>
       <%= link_to item_path(item[:id]) do %>
