@@ -82,13 +82,13 @@
 
 <%= render "shared/filters" %>
 <div class="container page-wrapper" style="margin-top: 30px;>
+
   <div class="page-inner">
     <div class="row">
-
+  <%= link_to 'Ver Todo', items_path %>
       <% @items.each do |item| %>
       <% if item.disponible && item.features == "Parlantes" %>
       <%= link_to item_path(item[:id]) do %>
-      <%= link_to 'Ver Todo', items_path %>
 
       <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3" style="border: 1px solid #D8D8D8;">
         <div class="box-up">
