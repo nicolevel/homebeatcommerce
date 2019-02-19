@@ -84,6 +84,7 @@
 <div class="container page-wrapper" style="margin-top: 30px;>
 
   <div class="page-inner">
+    <p><%= link_to 'Ver Todo', items_path %></p>
     <div class="row">
       <% @items.each do |item| %>
       <% if item.disponible && item.features == "Parlantes" %>
