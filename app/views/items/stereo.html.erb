@@ -20,6 +20,8 @@
       <li class="nav-item dropdown navbarlink">
         <!-- a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false"> -->
+          <%= link_to 'Ver Todo', items_path %>
+
           <%#= link_to 'Audio-Video', items_audiovideo_path %>
 <!--         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#"></a>
@@ -84,14 +86,13 @@
 <div class="container page-wrapper" style="margin-top: 30px;>
 
   <div class="page-inner">
-    <p><%= link_to 'Ver Todo', items_path %></p>
+
     <div class="row">
 
 
       <% @items.each do |item| %>
       <% if item.disponible && item.features == "Stereo" %>
       <%= link_to item_path(item[:id]) do %>
-
       <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3" style="border: 1px solid #D8D8D8;">
         <div class="box-up">
           <%= cl_image_tag item.photo, class: "picture-client" %>
