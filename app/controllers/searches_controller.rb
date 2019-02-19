@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  before_action :authenticate_user, :except => [:show]
+  skip_before_action :authenticate_user!, only: [:show]
   def new
   @search = Search.new
   # @categories = Item.uniq.pluck(:category)

@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :accesorios, :audifonos, :audiovideo, :parlantes, :stereo]
   add_breadcrumb "Inicio", :items_path
-  before_action :authenticate_user, :except => [:index, :show, :accesorios, :audifonos, :audiovideo, :parlantes, :stereo]
 
   def index
     @items = Item.search(params[:search])
