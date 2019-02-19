@@ -1,2 +1,48 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+
+<script>
+  $('.carousel').carousel({
+  interval: false
+  })
+</script>
+
+<script>
+  $(document).ready(function () {
+    var zindex = 10;
+
+    $(".grid-item").mouseover(function () {
+        var clickedElment = ($(this));
+
+        $(".grid-item").find("> .info").removeClass("show-info");
+        $(".grid-item").find("> .info").addClass("hide-info");
+        $(".grid-item").find("> .info button").css("visibility", "collapse");
+
+
+        if (clickedElment.find("> .info").hasClass("hide-info"))
+        {
+            clickedElment.find("> .info").removeClass("hide-info");
+            clickedElment.find("> .info").addClass("show-info");;
+            clickedElment.find("> .info button").css("visibility", "visible");
+        }
+
+    });
+
+});
+</script>
+
+<div class="home-container">
+
+
+<%= render 'shared/video' %>
+
+<%= render 'shared/categories' %>
+<%= render 'shared/paralax' %>
+<%= render 'shared/features' %>
+
+<%= render 'shared/paralax1' %>
+<%= render 'shared/moredetail' %>
+
+</div>
+
+
+
