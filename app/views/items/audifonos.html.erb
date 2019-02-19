@@ -20,7 +20,7 @@
       <li class="nav-item dropdown navbarlink">
         <!-- a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false"> -->
-          <%= link_to 'Audio-Video', items_audiovideo_path %>
+          <%#= link_to 'Audio-Video', items_audiovideo_path %>
 <!--         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#"></a>
           <a class="dropdown-item" href="#">Another action</a>
@@ -82,9 +82,11 @@
 
 <%= render "shared/filters" %>
 <div class="container page-wrapper" style="margin-top: 30px;>
+      <%= link_to 'Ver Todo', items_path %>
+
   <div class="page-inner">
     <div class="row">
-      <%= link_to 'Ver Todo', items_path %>
+
       <% @items.each do |item| %>
       <% if item.disponible && item.features == "Audifonos" %>
       <%= link_to item_path(item[:id]) do %>
