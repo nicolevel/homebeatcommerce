@@ -1,0 +1,371 @@
+<!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #fff; margin: 0;">
+
+  <!-- Navbar brand -->
+<%= link_to root_path do %>
+<%= image_tag 'homebeat_logo.png', :class => "style_image" %>
+<% end %>
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation" >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto" >
+          <!-- Dropdown -->
+      <li class="nav-item dropdown navbarlink">
+        <!-- a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false"> -->
+          <%= link_to 'Audio-Video', items_audiovideo_path %>
+<!--         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#"></a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div> -->
+      </li>
+          <!-- Dropdown -->
+      <li class="nav-item dropdown navbarlink" >
+          <%= link_to 'Stereo', items_stereo_path %>
+        <!-- <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" -->
+          <!-- aria-expanded="false">Stereo</a> -->
+<!--         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div> -->
+      </li>
+          <!-- Dropdown -->
+      <li class="nav-item dropdown navbarlink">
+          <%= link_to 'Parlantes', items_parlantes_path, class: 'active' %>
+        <!-- <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Parlantes</a> -->
+<!--         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div> -->
+      </li>
+          <!-- Dropdown -->
+      <li class="nav-item dropdown navbarlink">
+          <%= link_to 'Audifonos', items_audifonos_path %>
+        <!-- <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Audifonos</a> -->
+<!--         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div> -->
+      </li>
+
+      <!-- Dropdown -->
+      <li class="nav-item dropdown navbarlink">
+          <%= link_to 'Accesorios', items_accesorios_path %>
+        <!-- <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Accesorios</a> -->
+<!--         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+
+
+    </ul>
+
+
+</nav>
+
+<%= render "shared/paralax2" %>
+
+<%= render "shared/filters" %>
+<div class="container page-wrapper" style="margin-top: 30px;>
+  <div class="page-inner">
+    <div class="row">
+
+      <% @items.each do |item| %>
+      <% if item.disponible && item.features == "Accesorios" %>
+      <%= link_to item_path(item[:id]) do %>
+      <%= link_to 'Ver Todo', items_path %>
+
+      <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3" style="border: 1px solid #D8D8D8;">
+        <div class="box-up">
+          <%= cl_image_tag item.photo, class: "picture-client" %>
+          <!-- <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt=""> -->
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"><%= link_to item.nombre.upcase, item_path(item[:id]) %></span>
+              <span class="p-company"><%= item.marca %></span>
+            </div>
+            <div class="a-size"><%= item.features %></div>
+          </div>
+        </div>
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+          <a class="cart" href="#">
+            <span class="price">$ <%= item.precio %>0</span>
+            <span class="add-to-cart">
+              <span class="txt"> MAS INFO</span>
+            </span>
+          </a>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+      <% else %>
+      <%= link_to item_path(item[:id]) do %>
+      <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3 disable" style="border: 1px solid #D8D8D8;">
+        <div class="box-up">
+          <%= cl_image_tag item.photo, class: "picture-client" %>
+          <!-- <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt=""> -->
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"><%= link_to item.nombre, item_path(item[:id]) %></span>
+              <span class="p-company"><%= item.marca %></span>
+            </div>
+            <div class="a-size"><%= item.features %></div>
+          </div>
+        </div>
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+
+          <a class="cart" href="#">
+            <span class="price">$ <%= item.precio %>0</span>
+            <span class="add-to-cart">
+              <span class="txt"> <% link_to item_path(item[:id]) %> MAS INFO</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+
+<%= render "shared/paralax2" %>
+
+<%= render "shared/filters" %>
+<div class="container page-wrapper" style="margin-top: 30px;>
+  <div class="page-inner">
+    <div class="row">
+
+      <% @items.each do |item| %>
+      <% if item.disponible && item.features == "Audifonos" %>
+      <%= link_to item_path(item[:id]) do %>
+
+      <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3" style="border: 1px solid #D8D8D8;">
+        <div class="box-up">
+          <%= cl_image_tag item.photo, class: "picture-client" %>
+          <!-- <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt=""> -->
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"><%= link_to item.nombre.upcase, item_path(item[:id]) %></span>
+              <span class="p-company"><%= item.marca %></span>
+            </div>
+            <div class="a-size"><%= item.features %></div>
+          </div>
+        </div>
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+          <a class="cart" href="#">
+            <span class="price">$ <%= item.precio %>0</span>
+            <span class="add-to-cart">
+              <span class="txt"> MAS INFO</span>
+            </span>
+          </a>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+      <% else %>
+      <%= link_to item_path(item[:id]) do %>
+      <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3 disable" style="border: 1px solid #D8D8D8;">
+        <div class="box-up">
+          <%= cl_image_tag item.photo, class: "picture-client" %>
+          <!-- <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt=""> -->
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"><%= link_to item.nombre, item_path(item[:id]) %></span>
+              <span class="p-company"><%= item.marca %></span>
+            </div>
+            <div class="a-size"><%= item.features %></div>
+          </div>
+        </div>
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+
+          <a class="cart" href="#">
+            <span class="price">$ <%= item.precio %>0</span>
+            <span class="add-to-cart">
+              <span class="txt"> <% link_to item_path(item[:id]) %> MAS INFO</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+
+<%= render "shared/paralax2" %>
+
+<%= render "shared/filters" %>
+<div class="container page-wrapper" style="margin-top: 30px;>
+  <div class="page-inner">
+    <div class="row">
+
+      <% @items.each do |item| %>
+      <% if item.disponible && item.features == "Audio-Video" %>
+      <%= link_to item_path(item[:id]) do %>
+
+      <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3" style="border: 1px solid #D8D8D8;">
+        <div class="box-up">
+          <%= cl_image_tag item.photo, class: "picture-client" %>
+          <!-- <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt=""> -->
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"><%= link_to item.nombre.upcase, item_path(item[:id]) %></span>
+              <span class="p-company"><%= item.marca %></span>
+            </div>
+            <div class="a-size"><%= item.features %></div>
+          </div>
+        </div>
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+          <a class="cart" href="#">
+            <span class="price">$ <%= item.precio %>0</span>
+            <span class="add-to-cart">
+              <span class="txt"> MAS INFO</span>
+            </span>
+          </a>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+      <% else %>
+      <%= link_to item_path(item[:id]) do %>
+      <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3 disable" style="border: 1px solid #D8D8D8;">
+        <div class="box-up">
+          <%= cl_image_tag item.photo, class: "picture-client" %>
+          <!-- <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt=""> -->
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"><%= link_to item.nombre, item_path(item[:id]) %></span>
+              <span class="p-company"><%= item.marca %></span>
+            </div>
+            <div class="a-size"><%= item.features %></div>
+          </div>
+        </div>
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+
+          <a class="cart" href="#">
+            <span class="price">$ <%= item.precio %>0</span>
+            <span class="add-to-cart">
+              <span class="txt"> <% link_to item_path(item[:id]) %> MAS INFO</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>
+
+
+<%= render "shared/paralax2" %>
+
+<%= render "shared/filters" %>
+<div class="container page-wrapper" style="margin-top: 30px;>
+  <div class="page-inner">
+    <div class="row">
+
+      <% @items.each do |item| %>
+      <% if item.disponible && item.features == "Parlantes" %>
+      <%= link_to item_path(item[:id]) do %>
+
+      <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3" style="border: 1px solid #D8D8D8;">
+        <div class="box-up">
+          <%= cl_image_tag item.photo, class: "picture-client" %>
+          <!-- <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt=""> -->
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"><%= link_to item.nombre.upcase, item_path(item[:id]) %></span>
+              <span class="p-company"><%= item.marca %></span>
+            </div>
+            <div class="a-size"><%= item.features %></div>
+          </div>
+        </div>
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+          <a class="cart" href="#">
+            <span class="price">$ <%= item.precio %>0</span>
+            <span class="add-to-cart">
+              <span class="txt"> MAS INFO</span>
+            </span>
+          </a>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+      <% else %>
+      <%= link_to item_path(item[:id]) do %>
+      <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3 disable" style="border: 1px solid #D8D8D8;">
+        <div class="box-up">
+          <%= cl_image_tag item.photo, class: "picture-client" %>
+          <!-- <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt=""> -->
+          <div class="img-info">
+            <div class="info-inner">
+              <span class="p-name"><%= link_to item.nombre, item_path(item[:id]) %></span>
+              <span class="p-company"><%= item.marca %></span>
+            </div>
+            <div class="a-size"><%= item.features %></div>
+          </div>
+        </div>
+        <div class="box-down">
+          <div class="h-bg">
+            <div class="h-bg-inner"></div>
+          </div>
+
+          <a class="cart" href="#">
+            <span class="price">$ <%= item.precio %>0</span>
+            <span class="add-to-cart">
+              <span class="txt"> <% link_to item_path(item[:id]) %> MAS INFO</span>
+            </span>
+          </a>
+        </div>
+      </div>
+      <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

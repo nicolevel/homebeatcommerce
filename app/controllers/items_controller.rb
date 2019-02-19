@@ -11,6 +11,26 @@ class ItemsController < ApplicationController
     add_breadcrumb @item.nombre, @item_path
   end
 
+  def accesorios
+    @items = Item.search(params[:search])
+  end
+
+  def audifonos
+    @items = Item.search(params[:search])
+  end
+
+  def audiovideo
+    @items = Item.search(params[:search])
+  end
+
+  def parlantes
+    @items = Item.search(params[:search])
+  end
+
+  def stereo
+    @items = Item.search(params[:search])
+  end
+
   def new
     @items = Item.new
   end
