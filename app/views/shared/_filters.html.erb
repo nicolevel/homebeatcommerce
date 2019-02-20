@@ -12,7 +12,7 @@
 <%= f.input :min_price, :label => "Precio Minimo", input_html: { min: '0', step: 'any' } %>
 <%= f.input :max_price, :label => "Precio Maximo", input_html: { min: '0', step: 'any' } %>
 <%= f.input :color, :collection => %W[Blanco Negro #{"Blanco & Negro"}], as: :radio_buttons %>
-<%= f.button :submit, 'Buscar' %>
+<%= f.button :submit, 'Buscar', class: 'btn-block' %>
 <% end %>
 
 </div>

@@ -1,5 +1,5 @@
 class SearchesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :new, :create]
   def new
   @search = Search.new
   # @categories = Item.uniq.pluck(:category)
@@ -21,6 +21,6 @@ class SearchesController < ApplicationController
   private
 
   def search_params
-    params.require(:search).permit(:categoria, :min_price, :max_price, :marca, :color, :features)
+    params.require(:search).permit(:nomebre, :categoria, :min_price, :max_price, :marca, :color, :features)
   end
 end

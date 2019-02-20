@@ -20,7 +20,7 @@
 }
 
 .bg__foo {
-  background-image: image-url('sala.png')
+  background-image: image-url('12a.jpg')
 }
 
 .bg__bar {
@@ -28,7 +28,7 @@
 }
 
 .bg__foor {
-   background-image: url('cinetorres.jpg');
+   background-image: url('sala.png');
 }
 
 .bg__foom{
@@ -42,4 +42,9 @@
   background-image: url(
     https://s3-us-west-2.amazonaws.com/s.cdpn.io/30354/parallax1.jpg
   );
+}
+
+.bg__footer{
+  background-image: url('9a.jpg') ;
+
 }

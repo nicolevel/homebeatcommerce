@@ -1,35 +1,3 @@
-
-
-<script>
-  $('.carousel').carousel({
-  interval: false
-  })
-</script>
-
-<script>
-  $(document).ready(function () {
-    var zindex = 10;
-
-    $(".grid-item").mouseover(function () {
-        var clickedElment = ($(this));
-
-        $(".grid-item").find("> .info").removeClass("show-info");
-        $(".grid-item").find("> .info").addClass("hide-info");
-        $(".grid-item").find("> .info button").css("visibility", "collapse");
-
-
-        if (clickedElment.find("> .info").hasClass("hide-info"))
-        {
-            clickedElment.find("> .info").removeClass("hide-info");
-            clickedElment.find("> .info").addClass("show-info");;
-            clickedElment.find("> .info button").css("visibility", "visible");
-        }
-
-    });
-
-});
-</script>
-
 <%= render "shared/navbar" %>
 
 <div class="home-container">
@@ -44,5 +12,10 @@
 <%= render 'shared/moredetail' %>
 </div>
 
+<%= render 'shared/carousel' %>
+
+<div class="parallax">
+  <div class="bg__footer">foo</div>
+</div>
 
 
