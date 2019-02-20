@@ -22,6 +22,7 @@
           aria-expanded="false"> -->
           <%= link_to 'Ver Todo', items_path %>
 
+          <%#= link_to 'Audio-Video', items_audiovideo_path %>
 <!--         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#"></a>
           <a class="dropdown-item" href="#">Another action</a>
@@ -79,7 +80,9 @@
 
 </nav>
 
-<%= render "shared/paralax2" %>
+<div class="parallax">
+  <div class="cg__audifonos">foo</div>
+</div>
 
 
 <div class="container-fluid page-wrapper" style="margin-top: 30px;>
@@ -87,16 +90,13 @@
   <div class="page-inner">
 <%= render "shared/filters" %>
 
-
     <div class="row nosidespace">
 
-
       <% @items.each do |item| %>
-
-      <% if item.disponible && item.features == "Accesorios" %>
+      <% if item.disponible && item.features == "Audifonos" %>
       <%= link_to item_path(item[:id]) do %>
 
-      <div class=" col-xs-6 col-sm-6 col-md-6 col-lg-3" style="border: 1px solid #D8D8D8;">
+      <div class="el-wrapper col-xs-6 col-sm-6 col-md-6 col-lg-3" style="border: 1px solid #D8D8D8;">
         <div class="box-up">
           <%= cl_image_tag item.photo, class: "picture-client" %>
           <!-- <img class="img" src="http://code.slicecrowd.com/labs/4/images/t-shirt.png" alt=""> -->
@@ -156,3 +156,4 @@
     </div>
   </div>
 </div>
+
